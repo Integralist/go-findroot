@@ -15,7 +15,10 @@ type Stat struct {
 func Repo() (Stat, error) {
 	path, err := rootPath()
 	if err != nil {
-		return Stat{}, err
+		return Stat{
+			"Unknown",
+			"./",
+		}, err
 	}
 
 	gitRepo, err := exec.Command("basename", path).Output()
